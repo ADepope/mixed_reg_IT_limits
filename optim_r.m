@@ -31,15 +31,11 @@ end
 
 function [out] = fr(r, alpha, delta, D)
 
-    r;
-
     s = size(r,1);
     
     k = 2;
       
     [optimq, optcost] = optim_q(r, alpha, delta, D, k);
-    
-    %optimq = eye(2);
     
     %out = - trace(r * optimq) / 2; % an interaction part
     

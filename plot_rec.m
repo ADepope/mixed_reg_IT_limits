@@ -1,10 +1,10 @@
-deltas = 0.2:0.1:0.9;
-%deltas = 20;
+deltas = 0.5:0.1:2;
+deltas = 0.6;
 
-D = 1e-5;
+D = 1e-7;
 
 alphas = 0.6:0.09:1;
-alphas = 0.6;
+alphas = 0.9;
 
 acor = zeros( length(deltas), length(alphas) );
 
@@ -27,3 +27,26 @@ for i = 1:length(deltas)
 end
 
 acor
+
+%acor_flip = flip( acor , 1 ) ;
+
+figure(1)
+
+im = image(alphas, deltas, acor, 'CDataMapping','scaled');
+
+% Create ylabel
+ylabel({'deltas',''});
+
+% Create xlabel
+xlabel('alphas');
+
+
+figure(2)
+
+plot(alphas, 1/2./(1-alphas))
+
+% Create ylabel
+ylabel({'deltas',''});
+
+% Create xlabel
+xlabel('alphas');
